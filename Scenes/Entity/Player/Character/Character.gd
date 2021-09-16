@@ -13,6 +13,7 @@ func flap():
 	animated_sprite.play("flap")
 
 func die():
+	print("Player Character Died")
 	queue_free()
 
 func _on_AnimatedSprite_animation_finished():
