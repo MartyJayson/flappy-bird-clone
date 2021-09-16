@@ -20,6 +20,5 @@ func _on_AnimatedSprite_animation_finished():
 	animated_sprite.play("idle")
 
 func _on_Character_body_entered(body: Node):
-	print(body)
 	if body.is_in_group("obstacles"):
 		die()
