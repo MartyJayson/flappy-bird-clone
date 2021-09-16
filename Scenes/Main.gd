@@ -36,3 +36,9 @@ func setup_boundaries(size: Vector2 = Vector2(400, 60)):
 	bottom_floor.add_to_group("obstacles")
 	add_child(bottom_floor)
 	
+func _on_Character_died():
+	game_over()
+func game_over():
+	obstacle_spawner.stop()
+	get_tree().call_group("obstacles", "set_physics_process", false)
+	

@@ -17,3 +17,9 @@ func spawn_obstacle():
 	add_child(obstacle)
 	obstacle.position.y = randi()%400-150
 	emit_signal("obstacle_created", obstacle)
+
+func start():
+	Timer.start()
+
+func stop():
+	Timer.stop()

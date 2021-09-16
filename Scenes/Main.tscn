@@ -16,3 +16,5 @@ script = ExtResource( 3 )
 current = true
 
 [node name="ObstacleSpawner" parent="." instance=ExtResource( 2 )]
+
+[connection signal="died" from="Character" to="." method="_on_Character_died"]

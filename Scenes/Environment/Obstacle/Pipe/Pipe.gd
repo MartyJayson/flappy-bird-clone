@@ -13,3 +13,4 @@ func _on_VisibilityNotifier2D_screen_exited():
 func _on_Area2D_body_entered(body: Node):
 	if body.is_in_group("players"):
 		emit_signal("score")
+
