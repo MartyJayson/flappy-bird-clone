@@ -17,8 +17,9 @@ func _input(event: InputEvent):
 		tween.start()
 		game_started = true
 
-func init_game_over_menu(score):
+func init_game_over_menu(score, highscore):
 	score_label.text = "SCORE: " +  str(score) 
+	high_score_label.text = "BEST: " +  str(highscore) 
 	start_message.visible = false
 	game_over_menu.visible = true
 	restart.visible = true

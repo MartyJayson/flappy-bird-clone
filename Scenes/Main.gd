@@ -1,6 +1,7 @@
 extends Node2D
 
 const Boundary = preload("res://Scenes/Environment/Boundary/Boundary.tscn")
+const SAVE_FILE_PATH = "user://savedata.save"
 var screen_size: Vector2 = Vector2()
 
 onready var hud = $HUD
@@ -9,13 +10,16 @@ onready var menu_layer = $MenuLayer
 onready var character = $Character
 
 var score = 0 setget set_score
+var highscore = 0
 
 func _ready():
 	randomize()
 	screen_size = get_viewport_rect().size
 	setup_boundaries()
 	obstacle_spawner.connect("obstacle_created", self, "_on_obstacle_created")
+	load_highscore()
 	character.visible = false
+	
 func new_game():
 	self.score = 0
 	obstacle_spawner.start()
@@ -48,7 +52,23 @@ func _on_Character_died():
 func game_over():
 	obstacle_spawner.stop()
 	get_tree().call_group("obstacles", "set_physics_process", false)
-	menu_layer.init_game_over_menu(score)
+	if score > highscore:
+		highscore = score
+		save_highscore()
+	menu_layer.init_game_over_menu(score, highscore)
 	
 func _on_MenuLayer_start_game():
 	new_game()
+
+func save_highscore():
+	var save_data = File.new()
+	save_data.open(SAVE_FILE_PATH, File.WRITE)
+	save_data.store_var(highscore)
+	save_data.close()
+	
+func load_highscore():
+	var save_data = File.new()
+	if save_data.file_exists(SAVE_FILE_PATH):
+		save_data.open(SAVE_FILE_PATH, File.READ)
+		highscore = save_data.get_var()
+		save_data.close()
