@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/wing.wav-7539ac63a074229b4356a61c4103eb15.sample"
+
+[deps]
+
+source_file="res://Scenes/Entity/Player/Character/audio/wing.wav"
+dest_files=[ "res://.import/wing.wav-7539ac63a074229b4356a61c4103eb15.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
