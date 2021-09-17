@@ -13,7 +13,7 @@ extents = Vector2( 23.051, 102.746 )
 [node name="Pipe" type="StaticBody2D" groups=[
 "obstacles",
 ]]
-position = Vector2( 100, 0 )
+position = Vector2( 100, 50 )
 script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]

@@ -6,6 +6,8 @@ var screen_size: Vector2 = Vector2()
 onready var hud = $HUD
 onready var obstacle_spawner = $ObstacleSpawner
 onready var menu_layer = $MenuLayer
+onready var character = $Character
+
 var score = 0 setget set_score
 
 func _ready():
@@ -13,11 +15,11 @@ func _ready():
 	screen_size = get_viewport_rect().size
 	setup_boundaries()
 	obstacle_spawner.connect("obstacle_created", self, "_on_obstacle_created")
-
+	character.visible = false
 func new_game():
 	self.score = 0
 	obstacle_spawner.start()
-
+	character.visible = true
 func player_score():
 	self.score += 1
 

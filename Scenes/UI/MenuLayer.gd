@@ -3,7 +3,7 @@ extends CanvasLayer
 signal start_game
 
 var game_started = false
-
+onready var restart = $CanvasLayer/RestartButton
 onready var start_message = $StartMenu/StartMessage
 onready var tween = $Tween
 onready var score_label = $GameOverMenu/VBoxContainer/ScoreLabel
@@ -19,7 +19,9 @@ func _input(event: InputEvent):
 
 func init_game_over_menu(score):
 	score_label.text = "SCORE: " +  str(score) 
+	start_message.visible = false
 	game_over_menu.visible = true
-	
+	restart.visible = true
+
 func _on_RestartButton_pressed():
 	get_tree().reload_current_scene()

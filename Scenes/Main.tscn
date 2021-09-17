@@ -8,14 +8,13 @@
 [ext_resource path="res://Scenes/UI/MenuLayer.tscn" type="PackedScene" id=6]
 
 [node name="Main" type="Node2D"]
+z_as_relative = false
 script = ExtResource( 3 )
 
-[node name="HUD" parent="." instance=ExtResource( 4 )]
-layer = 1
-
 [node name="MenuLayer" parent="." instance=ExtResource( 6 )]
-layer = 3
 follow_viewport_enable = true
+
+[node name="HUD" parent="." instance=ExtResource( 4 )]
 
 [node name="BackgroundContainer" type="Node2D" parent="."]
 
