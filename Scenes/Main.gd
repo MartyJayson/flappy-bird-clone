@@ -14,6 +14,10 @@ func _ready():
 	setup_boundaries()
 	obstacle_spawner.connect("obstacle_created", self, "_on_obstacle_created")
 
+func new_game():
+	self.score = 0
+	obstacle_spawner.start()
+
 func player_score():
 	self.score += 1
 
@@ -41,4 +45,5 @@ func _on_Character_died():
 func game_over():
 	obstacle_spawner.stop()
 	get_tree().call_group("obstacles", "set_physics_process", false)
-	
+func _on_MenuLayer_start_game():
+	new_game()

@@ -10,10 +10,13 @@ onready var death_audio_player: AudioStreamPlayer2D = $DeathAudioPlayer
 onready var hit_audio_player: AudioStreamPlayer2D = $HitAudioPlayer
 
 var alive = true
+func _ready():
+	gravity_scale = 0.0
 
 func _input(event: InputEvent):
 	if event.is_action_pressed("ui_accept") && alive:
 		flap()
+		gravity_scale = 10.0
 
 func flap():
 	linear_velocity.y = flap_force
